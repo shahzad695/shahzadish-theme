@@ -1,3 +1,9 @@
-public*/
+public/*
 !.gitignore
-! App/public/wp-content/
+!wp-content/
+public/wp-content/*
+!public/wp-content/themes/
+public/wp-content/themes/*
+!public/wp-content/themes/shahzadish/
+
+
