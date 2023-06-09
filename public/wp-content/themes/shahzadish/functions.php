@@ -88,3 +88,54 @@ function remov_version_no( ){
   return"";
 }
 add_filter('the_generator','remov_version_no');
+
+/*
+  ======================
+   Custom Post Type
+  ======================
+
+*/
+function shahzadish_custom_post_type(){
+$labels=[
+  'name'=>'Portfolio',
+  'singular_name'=>'Portfolio',
+  'add_new'=>'Add Item',
+  'all_items'=>'All Items',
+  'new_item'=>'New Item',
+  'view_item'=>'View Item',
+  'add_new_item'=>'Add Item',
+  'edit_item'=>'Edit Item',
+  'search_item'=>'Search Portfolio',
+  'not_found'=>'No Items found in Portfolio',
+  'not_found_in_trash'=>'No Items found in trash',
+  'parent_item_colon'=>'Parent Item',
+];
+
+$args=[
+  'labels'=>$labels,
+  'public'=>true,
+  'has_archive'=>true,
+  'publicly_queryable'=>true,
+  'query_var'=>true,
+  'rewrite'=>true,
+  'capability_type'=>'post',
+  'hierarchical'=>true,
+  'exclude_from_search'=>false,
+  'supports'=>[
+    'title',
+    'editor',
+    'excerpt',
+    'thumbnail',
+    'revisions'
+  ],
+  'taxonomies'=>['category','post_tag'],
+  'menu_position'=>3
+
+
+  
+];
+register_post_type('portfolio', $args);
+
+}
+
+add_action('init','shahzadish_custom_post_type');
